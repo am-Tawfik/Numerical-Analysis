@@ -4,18 +4,30 @@ author: "Ahmed Mohmed Tawfik"
 date: "19/3/2023"
 output: html_document
 ---
-# Function g(x) 
+
+<script>
+   $(document).ready(function() {
+     $head = $('#header');
+     $head.prepend('<img src=\"https://pbs.twimg.com/profile_images/1103930224318672900/ihdChg0V_400x400.png" alt="FEPS" style=\"float: right;width: 80px;\"/>')
+     $head.prepend('<img src=\"https://www.logolynx.com/images/logolynx/s_13/13dc1854ad6c0ba730f884b1c66c2391.jpeg" alt="CAIRO UNIVERSITY" style=\"float: right;width: 70px;\"/>')
+     
+   });
+</script>
+
+<hr>
+Function g(x) 
 ```{r}
 g <- function(x) {
     (x ^ 3 + 3) / 7
   }
 g(1)
 ```
-#Function of Fixed Point Iteration (Fixed_PIT) 
+###### Function of Fixed Point Iteration 
+Fixed_PIT() 
 <br>
-We use the library **"rlist"**
+ **"rlist"** library was used
 
-```{r, echo=FALSE,results = "hide"}
+```{r, echo=FALSE,results = "hide", warning=FALSE}
 library(rlist)
 ```
 
@@ -49,7 +61,14 @@ Fixed_PIT <- function(x, es) {
 }
 ```
 
-# Check the function
+ Check the function
 ```{r}
 Fixed_PIT(2,0.00001)
 ```
+
+```{r,out.width = "3%",echo=FALSE}
+knitr::include_graphics("reference.png")
+```
+REFRENCE
+<br>
+How to show the images in Rmarkdown: <https://stackoverflow.com/questions/38333691/r-markdown-putting-an-image-in-the-top-right-hand-corner-of-html-and-moving-tit>
