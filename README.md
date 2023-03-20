@@ -4,10 +4,16 @@ Solutions of Non-linear Equations using Numerical Anlaysis Techniques
 This repository will concentrate on numerical mehtods using _Open methods and Bracketing methods_. 
 ## Programs
 1. Taylor Expansion
-   - Ln function.
+   - Ln function. 
+   <https://rpubs.com/am-tawfik/1017864>
 2. Bracketing Method
    - Bisection method
+   <https://rpubs.com/am-tawfik/1017865>
 3. Open Method
    - Newton's Method
+   <https://rpubs.com/am-tawfik/1017869>
+   - Modified Newton
+   <https://rpubs.com/am-tawfik/1017870>
    - Fixed Point Iteration
+   <https://rpubs.com/am-tawfik/1017895>
 
