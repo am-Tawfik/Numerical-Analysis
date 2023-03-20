@@ -1,6 +1,4 @@
 # Numerical-Analysis
-<https://github.com/am-Tawfik/Numerical-Analysis>
-<br>
 Solutions of Non-linear Equations using Numerical Anlaysis Techniques 
 ## Definitions
 This repository will concentrate on numerical mehtods using _Open methods and Bracketing methods_. 
