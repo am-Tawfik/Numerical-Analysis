@@ -1,0 +1,55 @@
+---
+title: "Fixed Point Iteration"
+author: "Ahmed Mohmed Tawfik"
+date: "19/3/2023"
+output: html_document
+---
+# Function g(x) 
+```{r}
+g <- function(x) {
+    (x ^ 3 + 3) / 7
+  }
+g(1)
+```
+#Function of Fixed Point Iteration (Fixed_PIT) 
+<br>
+We use the library **"rlist"**
+
+```{r, echo=FALSE,results = "hide"}
+library(rlist)
+```
+
+```{r}
+Fixed_PIT <- function(x, es) {
+  i = 0
+  ea = 1.1 * es
+  x0 = x
+  newlist<- list()
+  while (ea > es) {
+    xi <- g(x0)
+    ea <- abs(xi - x0) / xi
+    
+    looplist <- list(i,x0, xi, ea)
+    newlist  <- list.append(newlist, looplist)
+      
+    i=i+1
+    x0=xi
+  }
+  df <-  as.data.frame(do.call(rbind, newlist))
+  list_name <- list("iteration",
+                    "x(i)",
+                    "x(i+1)",
+                    "Error")
+  names(df) <- c(list_name)
+  print(df)
+
+  cat("\n", "x= ",x0,
+      "\n","alpha= ",round(x0,3))
+  
+}
+```
+
+# Check the function
+```{r}
+Fixed_PIT(2,0.00001)
+```

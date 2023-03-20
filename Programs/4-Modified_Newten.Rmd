@@ -1,0 +1,132 @@
+---
+title: "The Modified Newton-Raphson Method"
+author: "Ahmed M. Tawfik"
+---
+
+The Modified Newton-Raphson Method 
+ 
+First, we define the function we want to use.
+```{r}
+fn <- function(x){x^4-8.6*x^3-35.51*x^2+464.4*x-998.46} # other function: exp(-x)-x
+fn(4)
+```
+
+Second, get the derivative.
+```{r}
+fne<- expression(x^4-8.6*x^3-35.51*x^2+464.4*x-998.46)
+fn1<- D(fne, 'x')
+# this will print the derivative 
+fn1 #3 * x^2 - 2 * (2 * x) + 1
+```
+#Third, define new function of the first derivative
+```{r}
+fn_1<- function(x){4 * x^3 - 8.6 * (3 * x^2) - 35.51 * (2 * x) + 464.4}
+fn_1(4)
+
+```
+And define new function of the second derivative
+```{r}
+
+fne2<- expression(4 * x^3 - 8.6 * (3 * x^2) - 35.51 * (2 * x) + 464.4)
+fn2<- D(fne2, 'x')
+fn2
+
+fn_2<- function(x){4 * (3 * x^2) - 8.6 * (3 * (2 * x)) - 35.51 * 2}
+fn_2(4)
+```
+_____________________
+
+To graph the function  we have to see the initial point
+```{r}
+
+curve(fn, from=2, to=10, xlab="x", ylab="y")
+abline(h=0,col="red",lwd=1.5)
+```
+
+NOTE:  you can change the range of x (from, to) 
+_____________________
+
+
+Eventually we define the function of Modified Newton-Raphson 
+
+```{r}
+ 
+library(rlist)
+ModNewRaph<- function(xi,es=0.05,j=10){ 
+  i=0 #intial value for i
+  ea<-1.1*es
+  x0=xi
+  newlist <- list()
+  
+  while (ea>es & i<j) { 
+    x1<- x0-(fn_1(x0)*fn(x0)) / (fn_1(x0)^2-fn(x0)*fn_2(x0))
+    
+    ea<-abs((x1-x0)) #/x1 -> divide by x1 if you want relative error
+      looplist <- list(i,x0,fn(x0),fn_1(x0),fn_2(x0),x1,ea)
+      newlist <- list.append(newlist, looplist)
+    
+    x0=x1
+    i=i+1
+  }
+  df <-  as.data.frame(do.call(rbind, newlist))
+  list_name <- list("iteration",
+                    "x(i)",
+                    "f(xi)",
+                    "f'(xi)",
+                    "f''(xi)",
+                    "x(i+1)",
+                    "Error")
+  names(df) <- c(list_name)
+#  View(df)
+  print(df)
+    cat("x=",x0 ,"\n") #
+}
+```
+
+```{r}
+ModNewRaph(4,0.005,5)
+```
+```{r, echo=FALSE}
+  cat("\n the following is to calculat *m*: \n \n")
+```
+
+```{r}
+  
+  fne <-
+    expression(x ^ 4 - 8.6 * x ^ 3 - 35.51 * x ^ 2 + 464.4 * x - 998.46)
+get_m <-function(x){
+  fn1 <- fne
+  a <- 0
+  m<-0
+  while (a == 0) {
+    fn1 <- D(fn1, 'x')
+    print(fn1)
+    a <- eval(fn1)
+    cat("the derivative= ",a,"\n")
+    m<- m+1
+    print(m)
+  }
+  
+  #cat("x=",x0 ,"\n") #
+  cat("m=",m ,"\n") #
+}
+get_m(4.3)
+```
+let's graph the function again
+
+```{r}
+ x_1 = 4.3
+ curve(
+   fn,
+   from = 3,
+   to = 8,
+   xlab = "x",
+   ylab = "y"
+ )
+ abline(h = 0, col = "red", lwd = 1.5)
+ abline(v = x_1, col = "red" , lwd = 1.5)
+ text(x = 5, y = 15, labels = "(4.3,0)")
+```
+
+rmarkdown::render("Modified Newten.R")
+
