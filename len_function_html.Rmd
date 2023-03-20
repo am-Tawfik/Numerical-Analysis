@@ -1,0 +1,25 @@
+---
+title: "Len Funciton"
+author: "Ahmed Tawfik"
+date: "18/3/2023"
+output: html_document
+---
+
+## Len Function using Taylor Series
+
+```{r}
+
+ln_1  <- function(x,NoTerms){
+  i=1
+  estimate=0
+  for (i in 1:NoTerms) {
+    estimate <- estimate+ ((-1)^(i+1))*((x-1)^i)/(i)
+    i=i+1
+    }
+  return(c(estimate,log(x)))
+  
+}
+
+ln_1(1.5,10)
+
+```
