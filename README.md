@@ -1,4 +1,5 @@
 # Numerical-Analysis
+<https://github.com/am-Tawfik/Numerical-Analysis.git>
 Solutions of Non-linear Equations using Numerical Anlaysis Techniques 
 ## Definitions
 We know that there are 3 methods for finding the root. Analytical solutions, Graphical methods and Numerical methods. 
