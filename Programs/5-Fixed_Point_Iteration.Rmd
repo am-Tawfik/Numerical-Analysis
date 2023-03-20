@@ -10,7 +10,6 @@ output: html_document
      $head = $('#header');
      $head.prepend('<img src=\"https://pbs.twimg.com/profile_images/1103930224318672900/ihdChg0V_400x400.png" alt="FEPS" style=\"float: right;width: 80px;\"/>')
      $head.prepend('<img src=\"https://www.logolynx.com/images/logolynx/s_13/13dc1854ad6c0ba730f884b1c66c2391.jpeg" alt="CAIRO UNIVERSITY" style=\"float: right;width: 70px;\"/>')
-     
    });
 </script>
 
