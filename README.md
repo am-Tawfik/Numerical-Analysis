@@ -7,7 +7,7 @@ We know that there are 3 methods for finding the root. Analytical solutions, Gra
 This repository will concentrate on numerical mehtods using _Open methods and Bracketing methods_. 
 ## Programs
 1. Taylor Expansion
-   - len function.
+   - Ln function.
 2. Bracketing Method
    - Bisection method
 3. Open Method
