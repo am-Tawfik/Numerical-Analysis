@@ -16,4 +16,6 @@ This repository will concentrate on numerical mehtods using _Open methods and Br
    <https://rpubs.com/am-tawfik/1017870>
    - Fixed Point Iteration
    <https://rpubs.com/am-tawfik/1017895>
-
+4. Polynomial Method of Interpolation
+   - Newton's Divided Difference
+   <https://rpubs.com/am-tawfik/1019728>
